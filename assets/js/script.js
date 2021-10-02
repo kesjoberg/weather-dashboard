@@ -1,65 +1,81 @@
 //Selectors
 var searchBtn = document.querySelector('#searchBtn');
 var citySearch = document.querySelector('#citySearch');
+var citySpan = document.querySelector('#citySpan');
+var dateSpan = document.querySelector('#dateSpan');
+var iconSpan = document.querySelector('#iconSpan');
+var tempSpan = document.querySelector('#tempSpan');
+var windSpan = document.querySelector('#windSpan');
+var humiditySpan = document.querySelector('#humiditySpan');
+var uviSpan = document.querySelector('#uviSpan');
+
+
+
 // var savedCities = JSON.parse(localStorage.getItem("savedCities")) || [];
+  
+//Variables
+var apiKey = "a9d77957715e35e2e14953e9f47c0313";
+var city;
+var lat;
+var lon;
+var currentDay= moment().format('L');
+
+// var queryURL = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apiKey;
 
 
+function getCity () {
+  searchBtn.addEventListener('click', function(event){
+    event.preventDefault();
 
-fetch("http://api.openweathermap.org/data/2.5/weather?q=minneapolis&units=imperial&appid=a9d77957715e35e2e14953e9f47c0313")
-  .then(function (response) {
-    return response.json();
+    var city = citySearch.value.toLowerCase().trim();
+    // console.log(city);
+    getLatLon (city);
   })
-  .then(function (data) {
-    console.log(data);
-    // console.log(data.name);
-    // console.log(data.main.temp)
-    // console.log(data.wind.speed)
-    // console.log(data.main.humidity)
-    // console.log(weather.array[0].main)//clouds does not work
-  })
+   
+};
+  
 
-
-  fetch("http://api.openweathermap.org/data/2.5/forecast?q=minneapolis&units=imperial&appid=a9d77957715e35e2e14953e9f47c0313")
+function getLatLon(city) {
+  var queryCityURL = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apiKey;
+  console.log(city);
+  fetch(queryCityURL)
     .then(function (response) {
       return response.json();
     })
-    .then(function (data){
+    .then(function (data) {
       console.log(data);
+      
+      
+      var lat = data.coord.lat;
+      var lon = data.coord.lon;
+
+      citySpan.textContent= data.name;
+      getCityWeather(lat, lon)
+      }
+    );
+}
+
+function getCityWeather(lat, lon) {
+  var queryOnecallURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" +lat+ "&lon=" + lon + "&units=imperial&appid="+apiKey;
+  fetch(queryOnecallURL)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      console.log(data.current.weather[0].icon);
+
+      var weatherCode = data.current.weather[0].icon;
+      
+      iconSpan.innerHTML = "http://openweathermap.org/img/wn/"+weatherCode+"@2x.png";
+      tempSpan.textContent = data.current.temp;
+      windSpan.textContent = data.current.wind_speed;
+      humiditySpan.textContent = data.current.humidity;
+      uviSpan.textContent = data.current.uvi;
     })
 
-  
-// //Variables
-// var apiKey = "a9d77957715e35e2e14953e9f47c0313";
-// var city;
-// var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
-
-
-
-// var getCity = function (event) {
-//     event.preventDefault();
-
-//     var city = citySearch.value.toLowerCase().trim();
-//     console.log(city);
-//     getApi(city);
-// };
-  
-
-// var getApi = function() {
-//   fetch(queryURL)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(data);
-      
-    
-//       }
-//     );
-// }
-
-
-
-// getCity();
+}
+getCity();
 
 // //onclick
 
