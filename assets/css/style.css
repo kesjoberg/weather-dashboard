@@ -1,7 +1,18 @@
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
+
 #head {
   display: flex;
   justify-content: center;
   text-align: center;
   margin: 0 auto;
+}
 
+h3 {
+  word-spacing: 2px;
 }

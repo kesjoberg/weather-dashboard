@@ -20,8 +20,6 @@ var lat;
 var lon;
 var currentDay= moment().format('L');
 
-// var queryURL = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apiKey;
-
 
 function getCity () {
   searchBtn.addEventListener('click', function(event){
@@ -30,8 +28,7 @@ function getCity () {
     var city = citySearch.value.toLowerCase().trim();
     // console.log(city);
     getLatLon (city);
-  })
-   
+  })  
 };
   
 
@@ -45,11 +42,11 @@ function getLatLon(city) {
     .then(function (data) {
       console.log(data);
       
-      
       var lat = data.coord.lat;
       var lon = data.coord.lon;
 
       citySpan.textContent= data.name;
+      dateSpan.textContent= currentDay;
       getCityWeather(lat, lon)
       }
     );
@@ -67,13 +64,13 @@ function getCityWeather(lat, lon) {
 
       var weatherCode = data.current.weather[0].icon;
       
-      iconSpan.innerHTML = "http://openweathermap.org/img/wn/"+weatherCode+"@2x.png";
+      iconSpan.src = "http://openweathermap.org/img/wn/"+weatherCode+"@2x.png";
       tempSpan.textContent = data.current.temp;
       windSpan.textContent = data.current.wind_speed;
       humiditySpan.textContent = data.current.humidity;
       uviSpan.textContent = data.current.uvi;
     })
-
+  $('.card').addClass('show');  
 }
 getCity();
 
