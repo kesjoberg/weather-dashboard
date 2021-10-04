@@ -17,25 +17,79 @@
     </div>
   </header>
 
-  <section class="container">
+  <section class="container-fluid">
     <div class="row">
-      <sidebar class="col-4">
+      <sidebar class="col-3">
+        <div class ="row col-12">
           <form>
             <div class="form-group">
               <label for="citySearch">Search for a City:</label>
               <input type="text" class="form-control" id="citySearch">
             </div>
-            <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
+            <button type="submit" class="btn btn-primary btn-block" id="searchBtn">Search</button>
           </form>
+        </div>
+        <div class="row col-12" >
+          <ul id="savedCities"></ul>
+        </div>
       </sidebar>
-      <div class="col-8">
-        <div class="card hide">
-          <div class="card-body">
-            <h3 class= "cityName" id = "date"><span id="citySpan"></span>(<span id="dateSpan">0</span>)<img id="iconSpan" src=""></img></h3>
-            <p>Temp: <span id="tempSpan"> </span>ºF</p>
-            <p>Humidity: <span id="humiditySpan"></span>%</p>
-            <p>Wind: <span id="windSpan"></span>MPH</p>
-            <p>UV Index: <span id="uviSpan"></span></p>
+      <div class="col-9">
+        <div class="row">
+          <div class="card hide">
+            <div class="card-body card-current">
+              <h3 class= "cityName" id = "date"><span id="citySpan"></span>(<span id="dateSpan">0</span>)<img id="iconSpan" src=""></img></h3>
+              <p>Temp: <span id="tempSpan"> </span>ºF</p>
+              <p>Humidity: <span id="humiditySpan"></span>%</p>
+              <p>Wind: <span id="windSpan"></span>MPH</p>
+              <p>UV Index: <span id="uviSpan"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class= "card bg-primary hide">
+            <div class= "card-body col-12">
+              <h4 class="forecast-1"><span id="fDate-1"></span></h4>
+              <img id="fIcon-1" src=""></img>
+              <p>Temp: <span id="fTemp-1"> </span>ºF</p>
+              <p>Wind: <span id="fWind-1"></span>MPH</p>
+              <p>Humidity: <span id="fHumidity-1"></span>%</p>
+            </div>
+          </div>
+          <div class= "card bg-primary hide">
+            <div class= "card-body col-12">
+              <h4 class="forecast-2"><span id="fDate-2"></span></h4>
+              <img id="fIcon-2" src=""></img>
+              <p>Temp: <span id="fTemp-2"> </span>ºF</p>
+              <p>Wind: <span id="fWind-2"></span>MPH</p>
+              <p>Humidity: <span id="fHumidity-2"></span>%</p>
+            </div>
+          </div>
+          <div class= "card bg-primary hide">
+            <div class= "card-body col-12">
+              <h4 class="forecast-3"><span id="fDate-3"></span></h4>
+              <img id="fIcon-3" src=""></img>
+              <p>Temp: <span id="fTemp-3"> </span>ºF</p>
+              <p>Wind: <span id="fWind-3"></span>MPH</p>
+              <p>Humidity: <span id="fHumidity-3"></span>%</p>
+            </div>
+          </div>
+          <div class= "card bg-primary hide">
+            <div class= "card-body col-12">
+              <h4 class="forecast-4"><span id="fDate-4"></span></h4>
+              <img id="fIcon-4" src=""></img>
+              <p>Temp: <span id="fTemp-4"> </span>ºF</p>
+              <p>Wind: <span id="fWind-4"></span>MPH</p>
+              <p>Humidity: <span id="fHumidity-4"></span>%</p>
+            </div>
+          </div>
+          <div class= "card bg-primary hide">
+            <div class= "card-body col-12">
+              <h4 class="forecast-5"><span id="fDate-5"></span></h4>
+              <img id="fIcon-5" src=""></img>
+              <p>Temp: <span id="fTemp-5"> </span>ºF</p>
+              <p>Wind: <span id="fWind-5"></span>MPH</p>
+              <p>Humidity: <span id="fHumidity-5"></span>%</p>
+            </div>
           </div>
         </div>
       </div>

@@ -6,6 +6,26 @@
   display: flex;
 }
 
+.card-current {
+  width: 100%;
+}
+.favorable {
+  background-color: green;
+}
+
+.moderate{ 
+  background-color: yellow;
+}
+
+.severe {
+  background-color: red;
+}
+
+#uviSpan{
+  width: 15px;
+  border: white;
+  border-radius: 2px;
+}
 #head {
   display: flex;
   justify-content: center;
@@ -15,4 +35,10 @@
 
 h3 {
   word-spacing: 2px;
+}
+
+sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 100%
 }
