@@ -6,9 +6,6 @@
   display: flex;
 }
 
-.card-current {
-  width: 100%;
-}
 .favorable {
   background-color: green;
 }
