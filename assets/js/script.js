@@ -50,7 +50,7 @@ function getCity () {
   
 
 function getLatLon(city) {
-  var queryCityURL = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apiKey;
+  var queryCityURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apiKey;
   console.log(city);
   fetch(queryCityURL)
     .then(function (response) {
@@ -70,7 +70,7 @@ function getLatLon(city) {
 }
 
 function getCityWeather(lat, lon) {
-  var queryOnecallURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" +lat+ "&lon=" + lon + "&units=imperial&appid="+apiKey;
+  var queryOnecallURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" +lat+ "&lon=" + lon + "&units=imperial&appid="+apiKey;
   fetch(queryOnecallURL)
     .then(function (response) {
       return response.json();
