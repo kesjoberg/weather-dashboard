@@ -24,20 +24,26 @@ var currentDay= moment().format('L');
 
 
 
-
+for (var i=0; i<allTheCities.length; i++){  
+  listSavedCities(allTheCities[i]);
+}
 
 function listSavedCities(city) {
 
-   var savedCity = document.createElement("button");
-   savedCity.appendChild(document.createTextNode(city));
-   document.getElementById('savedCities').appendChild(savedCity);
-
+   var savedCity = document.createElement("BUTTON")
+   savedCity.innerText = city;
+   savedCity.classList.add('col-12');
+   document.getElementById('savedCities').append(savedCity);
  
 }
-
+ 
+document.getElementById('savedCities').addEventListener("click", function (event){
+  event.preventDefault();
+  var pastCity =event.target.innerText
+  getLatLon(pastCity);
+})
 
 function getCity () {
-  allTheCities =[];
   searchBtn.addEventListener('click', function(event){
     event.preventDefault();
     
@@ -99,31 +105,31 @@ function getCityWeather(lat, lon) {
     
       
       document.getElementById("fDate-1").textContent = moment().add(1, "days").format('l');
-      document.getElementById("fIcon-1").src = iconSpan.src = "https://openweathermap.org/img/wn/"+data.daily[0].weather[0].icon+"@2x.png"; 
+      document.getElementById("fIcon-1").src = "https://openweathermap.org/img/wn/"+data.daily[0].weather[0].icon+"@2x.png"; 
       document.getElementById("fTemp-1").textContent = data.daily[0].temp.max;
       document.getElementById('fWind-1').textContent = data.daily[0].wind_speed;
       document.getElementById("fHumidity-1").textContent = data.daily[0].humidity;
 
       document.getElementById("fDate-2").textContent = moment().add(2, "days").format('l');
-      document.getElementById("fIcon-2").src = iconSpan.src = "https://openweathermap.org/img/wn/"+data.daily[1].weather[0].icon+"@2x.png"; 
+      document.getElementById("fIcon-2").src = "https://openweathermap.org/img/wn/"+data.daily[1].weather[0].icon+"@2x.png"; 
       document.getElementById("fTemp-2").textContent = data.daily[1].temp.max;
       document.getElementById('fWind-2').textContent = data.daily[1].wind_speed;
       document.getElementById("fHumidity-2").textContent = data.daily[1].humidity;
 
       document.getElementById("fDate-3").textContent = moment().add(3, "days").format('l');
-      document.getElementById("fIcon-3").src = iconSpan.src = "https://openweathermap.org/img/wn/"+data.daily[2].weather[0].icon+"@2x.png"; 
+      document.getElementById("fIcon-3").src = "https://openweathermap.org/img/wn/"+data.daily[2].weather[0].icon+"@2x.png"; 
       document.getElementById("fTemp-3").textContent = data.daily[2].temp.max;
       document.getElementById('fWind-3').textContent = data.daily[2].wind_speed;
       document.getElementById("fHumidity-3").textContent = data.daily[2].humidity;
 
       document.getElementById("fDate-4").textContent = moment().add(4, "days").format('l');
-      document.getElementById("fIcon-4").src = iconSpan.src = "https://openweathermap.org/img/wn/"+data.daily[3].weather[0].icon+"@2x.png"; 
+      document.getElementById("fIcon-4").src= "https://openweathermap.org/img/wn/"+data.daily[3].weather[0].icon+"@2x.png"; 
       document.getElementById("fTemp-4").textContent = data.daily[3].temp.max;
       document.getElementById('fWind-4').textContent = data.daily[3].wind_speed;
       document.getElementById("fHumidity-4").textContent = data.daily[3].humidity;
 
       document.getElementById("fDate-5").textContent = moment().add(5, "days").format('l');
-      document.getElementById("fIcon-5").src = iconSpan.src = "https://openweathermap.org/img/wn/"+data.daily[4].weather[0].icon+"@2x.png"; 
+      document.getElementById("fIcon-5").src = "https://openweathermap.org/img/wn/"+data.daily[4].weather[0].icon+"@2x.png"; 
       document.getElementById("fTemp-5").textContent = data.daily[4].temp.max;
       document.getElementById('fWind-5').textContent = data.daily[4].wind_speed;
       document.getElementById("fHumidity-5").textContent = data.daily[4].humidity;

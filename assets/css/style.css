@@ -6,6 +6,12 @@
   display: flex;
 }
 
+.cityBtn {
+  border-radius: 2px;
+  background-color: rgb(183, 183, 183);
+  border: 0px solid white;
+}
+
 .favorable {
   background-color: green;
 }
