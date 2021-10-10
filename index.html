@@ -19,21 +19,23 @@
 
   <section class="container-fluid">
     <div class="row">
-      <sidebar class="col-3">
-        <div class ="row col-12">
-          <form>
-            <div class="form-group">
-              <label for="citySearch">Search for a City:</label>
-              <input type="text" class="form-control" id="citySearch">
-            </div>
-            <button type="submit" class="btn btn-primary btn-block" id="searchBtn">Search</button>
-          </form>
-          <div class="col-12" id = "savedCities"> </div>
-        </div>
+      <div class="col-12 col-md-3">
+        <sidebar>
+          <div class ="row col-12">
+            <form class= "col-12">
+              <div class="form-group">
+                <label for="citySearch">Search for a City:</label>
+                <input type="text" class="form-control" id="citySearch">
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" id="searchBtn">Search</button>
+            </form>
+            <div class="col-12" id = "savedCities"> </div>
+          </div>
+        </sidebar>
+      </div>
         
-      </sidebar>
-      <div class="col-9">
-        <div class="row">
+      <div class="col-12 col-md-9">
+        <div class="row col-12">
           <div class="card hide">
             <div class="card-body">
               <h3 class= "cityName" id = "date"><span id="citySpan"></span>(<span id="dateSpan">0</span>)<img id="iconSpan" src=""></img></h3>
@@ -91,8 +93,8 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
+  </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
